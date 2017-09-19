@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+  head
+    link(rel="stylesheet" href="css/styles.css")
+    title Doggo
+  body
+    .container
+      #mainPanel
+        h2 Weather
+        p #[i.fa.fa-globe(aria-hidden='true')] #[span#location]
+        p #[i.fa.fa-clock-o(aria-hidden='true')] #[span#time]
+        p #[i.fa.fa-calendar(aria-hidden='true')] #[span#date]
+        p #[i.fa.fa-thermometer-three-quarters(aria-hidden='true')] #[span#temp] #[span#tempSymbol]
+        button#toggleBtn toggle
+        br
+        img#weatherIcon
+        span#main
+    script(src="js/file1.js")
