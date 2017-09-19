@@ -1,12 +1,14 @@
 doctype html
 html(lang='en')
   head
-    link(rel="stylesheet" href="css/styles.css")
-    title Doggo
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet")
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet")
+    link(href="css/styles.css" rel="stylesheet")
+    title Local Weather App
   body
     .container
       #mainPanel
-        h2 Weather
+        h2 Local Weather App
         p #[i.fa.fa-globe(aria-hidden='true')] #[span#location]
         p #[i.fa.fa-clock-o(aria-hidden='true')] #[span#time]
         p #[i.fa.fa-calendar(aria-hidden='true')] #[span#date]
@@ -15,4 +17,5 @@ html(lang='en')
         br
         img#weatherIcon
         span#main
-    script(src="js/file1.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="js/main.js")

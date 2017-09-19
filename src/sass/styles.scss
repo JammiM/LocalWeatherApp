@@ -1,7 +1,35 @@
-$bgColour: #cccccc;
-$baseFontSize: 1em;
+$generalpadding : 2em;
+$generalFontSize : 1.2em;
+$lightGreyColour : #d3d3d3;
 
 body{
-  background: $bgColour;
-  font-size: $baseFontSize;
+  color: #000;
+  font-size: $generalFontSize;
+  font-weight: bold;
+  text-align: center;
+  background-image: url("http://butilikethat.com/wp-content/uploads/2012/06/1920x1080-BILT-wallpaper-stars.jpg")
+}
+h2{
+  font-family: 'Roboto', sans-serif;
+}
+p, a, span, button{
+  font-family: 'Open Sans', sans-serif;
+  text-decoration:none;
+}
+
+button{
+ font-size: $generalFontSize;
+}
+
+
+#mainPanel{
+  border:1px solid grey;
+  border-radius:20px;
+  padding:20px 20px 20px 20px;
+  background-color: $lightGreyColour;
+  margin: 60px 60px 60px 60px;
+}
+
+#mainPanel h2 {
+  border-bottom:1px solid grey;
 }
