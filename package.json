@@ -1,7 +1,7 @@
 {
   "name": "localweatherapp",
   "version": "1.0.0",
-  "description": "A simple app that siplays\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001bdis\u001b[2~d\u001b[2plays the local weather",
+  "description": "A simple app that displays\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001bdis\u001b[2~d\u001b[2plays the local weather",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,7 @@
     "gulp-babel": "^7.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
     "pump": "^1.0.2",
     "uglify-es": "^3.1.1"
   }

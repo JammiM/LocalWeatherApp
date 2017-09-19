@@ -1,9 +1,8 @@
 const gulp = require('gulp');
-const uglify = require('uglify-es');
+const uglify = require('gulp-uglify');
 const pump = require('pump');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
-const babelCore = require('babel-core');
 const babel = require('gulp-babel');
 
 //Logs Message
@@ -21,21 +20,17 @@ gulp.task('babel', function () {
 });
 
 
-
-/*
 //mininfies the .js code
-gulp.task('minify',function(cb){
+gulp.task('minify', function (callback) {
   pump([
-          gulp.src('src/js/*.js'),
-              uglify(),
-          gulp.dest('dist/js')
-
-//              .pipe(gulp.dest('dist/js'));
-
-  ],cb);
+        gulp.src('src/js/*.js'),
+        uglify(),
+        gulp.dest('dist/js')
+        // .pipe(gulp.dest('dist/js'));
+    ],
+    callback
+  );
 });
-*/
-
 
 //Compile Scss
 gulp.task('sass',function(){
