@@ -1,18 +1,19 @@
 $(document).ready(function(){
   getCurrentLocation();
+  getDateAndTime();
   var initialTemperatureFromServer;
   $("#toggleBtn").on("click",switchTemp);
 });
 
-
+// Switches between Celsius and Fahrenheit
 function switchTemp( event ) {
   event.preventDefault();
 
-  let fahrenheit, celsius;
+  let fahrenheit, celsius, fahrenheitToCelsius;
   celsius = parseInt($("#temp").html());
 
   fahrenheit = (parseInt(celsius) * 1.8) + 32;
-  let fahrenheitToCelsius = (fahrenheit - 32) / 1.8;
+  fahrenheitToCelsius = (fahrenheit - 32) / 1.8;
   Math.round(fahrenheitToCelsius) * 100;
 
   if($("#tempSymbol").html() == "\xB0 C"){
@@ -28,7 +29,6 @@ function switchTemp( event ) {
 function getServerData(lat,lon){
   let api = "https://fcc-weather-api.glitch.me/api/current?lat=" + `${lat}` + "&lon=" + `${lon}`;
   $.getJSON(api, generateHTMLTemplate);
-  getDateAndTime();
 }
 
 function generateHTMLTemplate(serverResponse){
@@ -61,3 +61,33 @@ function getDateAndTime(){
   $("#time").html(` ${date.getHours()}:${date.getMinutes()}`);
   $("#date").html(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`);
 }
+
+/*
+// Adds a custom Thermometer icon based on the temperature.
+function addCustomThermometerSymbol(){
+  let thermometerValue, thermometerSymbol;
+
+  thermometerValue = document.getElementById('temp').value;
+  thermometerSymbol = document.getElementById('thermometerSymbol');
+  console.log(thermometerValue);
+  switch (true) {
+    case thermometerValue > 15:
+      thermometerSymbol.classList.add("fa-thermometer-empty");
+      break;
+    case thermometerValue > 14:
+      thermometerSymbol.classList.add('fa-thermometer-quarter');
+      break;
+    case thermometerValue > 13:
+      thermometerSymbol.classList.add('fa-thermometer-empty');
+      break;
+    case thermometerValue > 12:
+      thermometerSymbol.classList.add('fa-thermometer-full');
+      break;
+    case thermometerValue > 11:
+      thermometerSymbol.classList.add('fa-thermometer-full');
+      break;
+    default:
+      thermometerSymbol.classList.add('fa-thermometer-empty');
+  }
+}
+*/
