@@ -4,6 +4,7 @@ const pump = require('pump');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
 const babel = require('gulp-babel');
+const bs = require('browser-sync').create(); // create a browser sync instance.
 
 //Logs Message
 gulp.task('message',function(){
@@ -36,7 +37,8 @@ gulp.task('minify', function (callback) {
 gulp.task('sass',function(){
   gulp.src('src/sass/*.scss')
       .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('dist/css'));
+      .pipe(gulp.dest('dist/css'))
+      .pipe(bs.stream());
 });
 
 
@@ -46,10 +48,21 @@ gulp.task('pug',function(){
     .pipe(pug({
       pretty: true
     }))
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('dist/'))
+    .pipe(bs.stream());
 });
 
-//Watch everthing
+//Browser sync
+gulp.task('browser-sync', function() {
+// bs.init(['./build/css/**.*', './build/js/**.*'],{
+    bs.init({
+        server: {
+            baseDir: './dist'
+        }
+    });
+});
+
+//Watch everything
 gulp.task('watch',function(){
 //  gulp.watch('src/js/*.js', ['minify']);
   gulp.watch('src/sass/*.scss', ['sass']);

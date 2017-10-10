@@ -7,6 +7,7 @@ $(document).ready(function () {
   $("#toggleBtn").on("click", switchTemp);
 });
 
+// Switches between Celsius and Fahrenheit
 function switchTemp(event) {
   event.preventDefault();
 
@@ -67,33 +68,3 @@ function getDateAndTime() {
   $("#time").html(" " + date.getHours() + ":" + date.getMinutes());
   $("#date").html(date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear());
 }
-
-/*
-// Adds a custom Thermometer icon based on the temperature.
-function addCustomThermometerSymbol(){
-  let thermometerValue, thermometerSymbol;
-
-  thermometerValue = document.getElementById('temp').value;
-  thermometerSymbol = document.getElementById('thermometerSymbol');
-  console.log(thermometerValue);
-  switch (true) {
-    case thermometerValue > 15:
-      thermometerSymbol.classList.add("fa-thermometer-empty");
-      break;
-    case thermometerValue > 14:
-      thermometerSymbol.classList.add('fa-thermometer-quarter');
-      break;
-    case thermometerValue > 13:
-      thermometerSymbol.classList.add('fa-thermometer-empty');
-      break;
-    case thermometerValue > 12:
-      thermometerSymbol.classList.add('fa-thermometer-full');
-      break;
-    case thermometerValue > 11:
-      thermometerSymbol.classList.add('fa-thermometer-full');
-      break;
-    default:
-      thermometerSymbol.classList.add('fa-thermometer-empty');
-  }
-}
-*/
