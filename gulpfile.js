@@ -11,7 +11,8 @@ gulp.task('message',function(){
   return console.log('Gulp is running ...');
 });
 
-gulp.task('default', ['message', 'sass']);
+gulp.task('default', ['serve', 'message', 'sass']);
+
 //gulp.task('default', ['message', 'minify', 'sass']);
 gulp.task('babel', function () {
   return gulp.src('src/es6/main.js')
@@ -53,13 +54,15 @@ gulp.task('pug',function(){
 });
 
 //Browser sync
-gulp.task('browser-sync', function() {
-// bs.init(['./build/css/**.*', './build/js/**.*'],{
-    bs.init({
-        server: {
-            baseDir: './dist'
-        }
-    });
+gulp.task('serve', ['sass'], function(){
+
+  bs.init({
+    server:  "./dist"
+  });
+
+  gulp.watch(['dist/scss/*.scss'], ['sass']);
+  gulp.watch(['dist/*.html']).on('change', bs.reload);
+
 });
 
 //Watch everything
